@@ -40,7 +40,8 @@ export const Home = (props) => {
                         </View>
                     </View>
                 </View>
-            </View>
+            </View> 
+            // bắt đầu git
 
 
         );
