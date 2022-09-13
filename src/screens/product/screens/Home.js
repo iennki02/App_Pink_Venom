@@ -39,50 +39,15 @@ export const Home = (props) => {
                             <Text style={styles.textPrice}>{price} VND</Text>
                         </View>
                     </View>
-                </View>
+                </View> 
             </View> 
             // bắt đầu git
 
 
         );
 
-
-        // return (
-        //     <View style={styles.categoryContainer}>
-        //         <Text style={styles.categoryName}>{name}</Text>
-        //         {/* List các sản phẩm */}
-        //         <View style={styles.productsContainer}>
-        //             {
-        //                 products.map(pro => {
-        //                     return (
-        //                         // 1 sản phẩm
-        //                         <Pressable onPress={() => navigation.navigate('Detail', { id: pro._id })} style={styles.product} key={pro._id}>
-        //                             <View style={styles.productImageContainer}>
-        //                                 <Image style={styles.productImage} resizeMode='cover'
-        //                                     source={{ uri: pro.images[0] }} />
-        //                             </View>
-        //                             <View style={styles.productNameContainer}>
-        //                                 <Text numberOfLines={1} style={styles.productName}>{pro.name}</Text>
-        //                             </View>
-        //                             <View style={styles.productPriceContainer}>
-        //                                 <Text style={styles.productPrice}>{pro.price}đ</Text>
-        //                             </View>
-        //                         </Pressable>
-        //                     )
-        //                 })
-        //             }
-        //         </View>
-        //     </View>
-        // )
     }
 
-    // const renderHeader = () => {
-    //     return (
-    //         <View>
-    //             <Image source={require('../../../assets/images/banner1.png')} />
-    //         </View>
-    //     )
-    // }
 
     let [fontsLoaded] = useFonts({
         Dosis_800ExtraBold, Dosis_500Medium, Dosis_400Regular
@@ -104,8 +69,7 @@ export const Home = (props) => {
 
     return (
         <View style={styles.container}>
-
-             <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+                {/* top */}
                 <View style={styles.Top}>
                     <View style={styles.HiContainer}>
                         <Image style={styles.imageicon}
@@ -125,23 +89,9 @@ export const Home = (props) => {
 
                     </View>
                 </View>
-
-                {/* search */}
-                <View style={styles.searchContainer}>
-                    <TextInput
-                        value={search}
-                        onChangeText={setSearch}
-                        placeholder='Tìm kiếm'
-                        style={styles.textSearch}>
-                    </TextInput>
-
-                    <Pressable
-                        onPress={() => navigation.navigate('')}
-                        style={styles.imagesearch}>
-                        <Image style={styles.imagesearch}
-                            source={require('../../../assets/images/search.png')} />
-                    </Pressable>
-                </View>
+             
+                <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+            
 
                  <View style={styles.imageContainer}>
                     <Image style={styles.imagebanner}
@@ -206,7 +156,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     rowimg: {
-        width: '95%',
+        width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -216,30 +166,28 @@ const styles = StyleSheet.create({
     },
     imgpro: {
         width: 100,
-        height: 75,
+        height: 70,
         borderRadius: 20,
     },
     flatListContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 20,
         marginVertical: 8,
         marginHorizontal: 16,
 
     },
 
     Flatlist: {
-        backgroundColor: '#D77189',
-        paddingHorizontal: 10,
+        backgroundColor: 'white',
+        paddingHorizontal: 5,
         marginVertical: 15,
         marginHorizontal: 5,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-        height: 112,
+        height: 120,
 
     },
-
 
     suggestions: {
         fontFamily: 'Dosis_800ExtraBold',
@@ -247,30 +195,6 @@ const styles = StyleSheet.create({
         marginLeft: 20,
     },
     suggestionsContainer: {},
-
-    imagesearch: {
-        width: 20,
-        height: 20,
-        marginRight: 20,
-    },
-    textSearch: {
-        fontFamily: 'Dosis_400Regular',
-        fontSize: 18,
-        marginLeft: 20,
-        height: 45,
-        width: 280,
-    },
-    searchContainer: {
-        width: '90%',
-        height: 44,
-        marginLeft: 20,
-        marginTop: 23,
-        flexDirection: 'row',
-        backgroundColor: '#D77189',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderRadius: 20,
-    },
 
     textHi: {
         fontFamily: 'Dosis_500Medium',
@@ -287,7 +211,7 @@ const styles = StyleSheet.create({
         height: 36,
         marginLeft: 20,
         flexDirection: 'row',
-        backgroundColor: '#D77189',
+        backgroundColor: 'white',
         alignItems: 'center',
         borderRadius: 20,
     },
@@ -333,7 +257,7 @@ const styles = StyleSheet.create({
     },
 
     noti: {
-        backgroundColor: '#D77189',
+        backgroundColor: 'white',
         width: 35,
         height: 35,
         marginRight: 20,
@@ -347,6 +271,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 36,
         marginTop: 50,
+        marginBottom:12,
         alignItems: 'center',
         justifyContent: 'space-between',
     },
@@ -354,7 +279,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#F0F0F0',
+        backgroundColor: '#DF6F8A',
     }
 })
 
@@ -364,19 +289,19 @@ var data = [
     {
         "_id": "001",
         "image": "https://cafe24img.poxo.com/ygnext/web/product/big/202208/55ca65ea57c6b712ad221f7c493d42af.jpg",
-        "name": "BLACKPINK 2nd album [BORN-PINK] box set ver.",
+        "name": "2nd album [BORN-PINK] box set ver.",
         "price": "400.000"
     },
     {
         "_id": "002",
         "image": "https://cafe24img.poxo.com/ygnext/web/product/big/202208/387b623283d7f5eea80e8e2988d1f325.jpg",
-        "name": "BLACKPINK 2nd album [BORN-PINK] digipack ver.",
+        "name": "2nd album [BORN-PINK] digipack ver.",
         "price": "55.000"
     },
     {
         "_id": "003",
         "image": "https://cafe24img.poxo.com/ygnext/web/product/tiny/202208/06a9c718d37868aedbdc741fab0d6dc8.jpg",
-        "name": "BLACKPINK 2nd album [BORN-PINK] limited ver.",
+        "name": "2nd album [BORN-PINK] limited ver.",
         "price": "55.000"
     },
     {
@@ -393,30 +318,6 @@ var data = [
     },
     {
         "_id": "006",
-        "image": "https://i.pinimg.com/564x/22/89/88/228988a36bd49678eeffe6ee8d37130d.jpg",
-        "name": "Trà Đào Cam Sả",
-        "price": "55.000"
-    },
-    {
-        "_id": "007",
-        "image": "https://i.pinimg.com/564x/22/89/88/228988a36bd49678eeffe6ee8d37130d.jpg",
-        "name": "Trà Đào Cam Sả",
-        "price": "55.000"
-    },
-    {
-        "_id": "008",
-        "image": "https://i.pinimg.com/564x/22/89/88/228988a36bd49678eeffe6ee8d37130d.jpg",
-        "name": "Trà Đào Cam Sả",
-        "price": "55.000"
-    },
-    {
-        "_id": "009",
-        "image": "https://i.pinimg.com/564x/22/89/88/228988a36bd49678eeffe6ee8d37130d.jpg",
-        "name": "Trà Đào Cam Sả",
-        "price": "55.000"
-    },
-    {
-        "_id": "010",
         "image": "https://i.pinimg.com/564x/22/89/88/228988a36bd49678eeffe6ee8d37130d.jpg",
         "name": "Trà Đào Cam Sả",
         "price": "55.000"
