@@ -137,6 +137,7 @@ export const Home = (props) => {
             </View>
 
             </ScrollView>
+            ///
         </View>
     )
 }
