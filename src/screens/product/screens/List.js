@@ -4,7 +4,7 @@ import React from 'react'
 export const List = () => {
   return (
     <View>
-      <Text>List</Text>
+      <Text>List abc</Text>
     </View>
   )
 }
