@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Pressable, ScrollView } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View, Image, TextInput, Pressable, ScrollView } from 'react-native';
 import { UserContext } from '../UserContext';
 import { useFonts, Dosis_800ExtraBold, Dosis_500Medium, } from '@expo-google-fonts/dosis';
 
@@ -7,9 +7,10 @@ import { useFonts, Dosis_800ExtraBold, Dosis_500Medium, } from '@expo-google-fon
 export const Register = (props) => {
     const { navigation } = props;
 
-   
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmpassword, setConfirmassword] = useState('');
     // const onLoginPress = async () => {
     //   const res = await onLogin(email, password);
     //   console.log('onLoginPress: ', res);
@@ -28,60 +29,85 @@ export const Register = (props) => {
 
 
     return (
-        // <KeyboardAvoidingView>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-            <View style={styles.container}>
-                <View style={styles.imageContainer}>
-                    <Image style={styles.image} source={require('../../../assets/images/logo.png')} />
-                </View>
-
-                <View style={styles.sloganContainer}>
-                    <Text style={styles.slogan}>Đăng ký tài khoản của bạn</Text>
-                </View>
-                <View style={styles.formContainer}>
-                     {/* email */}
-                    <View style={styles.row}> 
-                        <Text style={styles.textEmail}>Email</Text>
-                        <Text style={styles.textimpo}>*</Text>
+        <KeyboardAvoidingView>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+                <View style={styles.container}>
+                    <View style={styles.imageContainer}>
+                        <Image style={styles.image} source={require('../../../assets/images/logo.png')} />
                     </View>
-                    <TextInput
-                        value={email}
-                        onChangeText={setEmail}
-                        placeholder='Email'
-                        style={styles.textInput} />
 
-                        
-
-                    {/* pass */}
-                    <View style={styles.row}> 
-                        <Text style={styles.textEmail}>Mật khẩu</Text>
-                        <Text style={styles.textimpo}>*</Text>
+                    <View style={styles.sloganContainer}>
+                        <Text style={styles.slogan}>Đăng ký tài khoản của bạn</Text>
                     </View>
-                    <TextInput
-                        value={password}
-                        onChangeText={setPassword}
-                        placeholder='Mật khẩu'
-                        style={styles.textInput} />
+                    <View style={styles.formContainer}>
+                        {/* email */}
+                        <View style={styles.row}>
+                            <Text style={styles.textEmail}>Email</Text>
+                            <Text style={styles.textimpo}>*</Text>
+                        </View>
+                        <TextInput
+                            value={email}
+                            onChangeText={setEmail}
+                            placeholder='Email'
+                            style={styles.textInput} />
 
 
-                    {/* loginButton */}
-                    <Pressable
-                        // onPress={onLoginPress}
-                        style={styles.button}>
-                        <Text style={styles.login}>Đăng ký</Text>
-                    </Pressable>
+                        {/* sdt */}
+                        <View style={styles.row}>
+                            <Text style={styles.textEmail}>Số điện thoại</Text>
+                            <Text style={styles.textimpo}>*</Text>
+                        </View>
+                        <TextInput
+                            value={password}
+                            onChangeText={setPassword}
+                            placeholder='Số điện thoại'
+                            style={styles.textInput} />
+
+
+
+                        {/* pass */}
+                        <View style={styles.row}>
+                            <Text style={styles.textEmail}>Mật khẩu</Text>
+                            <Text style={styles.textimpo}>*</Text>
+                        </View>
+                        <TextInput
+                            value={password}
+                            onChangeText={setPassword}
+                            placeholder='Mật khẩu'
+                            style={styles.textInput} />
+
+
+                        {/* confirm pass */}
+                        <View style={styles.row}>
+                            <Text style={styles.textEmail}>Xác nhận mật khẩu</Text>
+                            <Text style={styles.textimpo}>*</Text>
+                        </View>
+                        <TextInput
+                            value={confirmpassword}
+                            onChangeText={setConfirmassword}
+                            placeholder='Xác nhận mật khẩu'
+                            style={styles.textInput} />
+
+
+
+                        {/* loginButton */}
+                        <Pressable
+                            // onPress={onLoginPress}
+                            style={styles.button}>
+                            <Text style={styles.login}>Đăng ký</Text>
+                        </Pressable>
+                    </View>
+
+
+
+
+                    <View style={styles.registerContainer}>
+                        <Text style={styles.text2}> Bạn chưa tài khoản?</Text>
+                        <Text onPress={() => navigation.navigate('Login')} style={styles.register}>Đăng nhập</Text>
+                    </View>
                 </View>
-
-            
-
-
-                <View style={styles.registerContainer}>
-                    <Text style={styles.text2}> Bạn chưa tài khoản?</Text>
-                    <Text onPress={() => navigation.navigate('Login')} style={styles.register}>Đăng nhập</Text>
-                </View>
-            </View>
-        </ScrollView>
-        // </KeyboardAvoidingView>
+            </ScrollView>
+        </KeyboardAvoidingView>
     )
 }
 
@@ -98,7 +124,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Dosis_800ExtraBold',
         fontWeight: '500',
         fontSize: 16,
-        marginLeft:5,
+        marginLeft: 5,
         lineHeight: 20,
         color: '#D77189',
     },
@@ -110,8 +136,8 @@ const styles = StyleSheet.create({
     },
 
     imagefbgg: {
-        width:24,
-        height:24,
+        width: 24,
+        height: 24,
     },
 
     textfbgg: {
@@ -197,21 +223,21 @@ const styles = StyleSheet.create({
     },
 
 
-    savepass:{
+    savepass: {
         fontFamily: 'Dosis_500Medium',
         fontSize: 18,
         marginLeft: 14,
     },
 
     SavePassView: {
-        borderRadius:5,
-        marginTop:10,
+        borderRadius: 5,
+        marginTop: 10,
     },
 
-    CheckBox:{
-        borderRadius:5,
+    CheckBox: {
+        borderRadius: 5,
         marginLeft: 20,
-        marginTop:10,
+        marginTop: 10,
         width: 25,
         height: 25,
     },
@@ -227,7 +253,7 @@ const styles = StyleSheet.create({
     formContainer: {
         paddingHorizontal: 32,
         marginTop: 10,
-        
+
     },
 
     textimpo: {

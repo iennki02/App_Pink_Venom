@@ -7,6 +7,7 @@ import { Welcome } from './src/screens/user/screens/Welcome';
 import { Register } from './src/screens/user/screens/Register';
 import { Home } from './src/screens/product/screens/Home';
 import { ProductNavigation } from './src/screens/product/ProductNavigation';
+import { Notify } from './src/screens/product/screens/Notify';
 
 
 
@@ -17,8 +18,7 @@ export default function App() {
         <Navigation />
       </ProductContextProvider>
     </UserContextProvider>
-    // <ProductNavigation/>
-    // <Navigation /> 
+
   );
 }
 
